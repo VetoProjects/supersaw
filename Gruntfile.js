@@ -34,14 +34,33 @@ module.exports = function (grunt) {
           }
         },
         watch: {
-            files: '**/*.js',
-            tasks: ['uglify:js', 'gjslint:js']
+            prod: {
+                files: '**/*.js',
+                tasks: ['uglify:js', 'gjslint:js']
+            },
+            dev: {
+                files: '**/*.js',
+                tasks: ['gjslint:js']
+           }
+        },
+        concurrent: {
+            options: {
+                logConcurrentOutput: true
+            },
+            prod: {
+                tasks: ['watch:prod']
+            },
+            dev: {
+                tasks: ['watch:dev']
+            }
         }
     });
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-gjslint');
+    grunt.loadNpmTasks('grunt-concurrent');
 
-    grunt.registerTask('default', ['gjslint', 'connect', 'watch', 'uglify:js']);
+    grunt.registerTask('default', ['gjslint', 'uglify', 'connect', 'concurrent:prod']);
+    grunt.registerTask('dev', ['gjslint', 'connect', 'concurrent:dev']);
 }
