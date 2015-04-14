@@ -17,7 +17,7 @@ module.exports = function (grunt) {
               }
             },
             js: {
-                src: ['effects/*.js']
+                src: ['lib/*/*.js']
             }
         },
         uglify: {
@@ -29,7 +29,7 @@ module.exports = function (grunt) {
           },
           js: {
             files: {
-              'dist/js/deploy.js': ['effects/*.js']
+              'dist/js/deploy.js': ['lib/*/*.js']
             }
           }
         },
