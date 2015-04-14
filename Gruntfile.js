@@ -17,7 +17,7 @@ module.exports = function (grunt) {
               }
             },
             js: {
-                src: ['lib/*/*.js']
+                src: ['lib/*/*.js', 'src/*.js']
             }
         },
         uglify: {
