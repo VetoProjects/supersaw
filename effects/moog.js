@@ -11,7 +11,7 @@ var moog = function(size) {
         var fb = node.resonance * (1.0 - 0.15 * f * f);
         for (var i = 0; i < size; i++) {
             input[i] -= out4 * fb;
-            input[i] *= 0.35013 * (f*f)*(f*f);
+            input[i] *= 0.35013 * (f * f) * (f * f);
             out1 = input[i] + 0.3 * in1 + (1 - f) * out1;
             in1 = input[i];
             out2 = out1 + 0.3 * in2 + (1 - f) * out2;
@@ -22,6 +22,6 @@ var moog = function(size) {
             in4 = out3;
             output[i] = out4;
         }
-    }
+    };
     return node;
 };

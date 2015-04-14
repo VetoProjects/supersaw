@@ -16,6 +16,6 @@ var pinking = function(size) {
             output[i] *= 0.11; // (roughly) compensate for gain
             b6 = input[i] * 0.115926;
         }
-    }
+    };
     return node;
 };

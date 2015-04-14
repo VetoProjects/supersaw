@@ -8,6 +8,6 @@ var lowPass = function(size) {
             output[i] = (input[i] + lastOut) / 2.0;
             lastOut = output[i];
         }
-    }
+    };
     return node;
 };
