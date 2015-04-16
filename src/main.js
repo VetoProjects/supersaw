@@ -33,6 +33,7 @@ player1.speed.addEventListener(
     function(e) { myMixer.player1.speed(this.value / 100.0); },
     false
 );
+myMixer.player1.visual.canvas(player1.querySelector('.visual'));
 
 player2.audioFile.addEventListener(
     'change',
@@ -64,6 +65,7 @@ player2.speed.addEventListener(
     function(e) { myMixer.player2.speed(this.value / 100.0); },
     false
 );
+myMixer.player2.visual.canvas(player2.querySelector('.visual'));
 
 document.getElementById('crossfader').addEventListener(
     'input',
