@@ -3,6 +3,8 @@
 <html>
     <head>
         <title>Supersaw</title>
+
+        <link rel="stylesheet" href="style/main.css"/>
     </head>
     <body>
         <div class="player" id="player1">
@@ -13,8 +15,6 @@
             Low: <input type="range" class="low" min="0" max="100" value="100" /><br />
         </div>
 
-        <hr>
-
         <div class="player" id="player2">
             Track: <input type="file" class="audioFile" accept="audio/*" /><br>
             Volume: <input type="range" class="volume" min="0" max="100" value="100" /><br />
@@ -23,9 +23,12 @@
             Low: <input type="range" class="low" min="0" max="100" value="100" /><br />
         </div>
         
-        <hr>
+        <hr/>
 
-        Crossfader: <input type="range" id="crossfader" min="0" max="200" value="0" />
+        <form class="centered" action=".">
+          <label for="crossfader">Crossfader:</label>
+          <input type="range" id="crossfader" min="0" max="200" value="0" />
+        </form>
 
         <script src="lib/widgets/equalizer.js" type="text/javascript" charset="utf-8"></script>
         <script src="lib/widgets/crossfader.js" type="text/javascript" charset="utf-8"></script>

@@ -1,0 +1,23 @@
+.player {
+  margin-left: 10%;
+  width: 30%;
+  margin-right: 10%;
+}
+
+#player1 {
+  float: left;
+}
+
+#player2 {
+  float: right;
+}
+
+.centered {
+  margin-left: 40%;
+  width: 20%;
+}
+
+#crossfader {
+  position: relative;
+  vertical-align: bottom;
+}
