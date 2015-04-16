@@ -29,7 +29,11 @@ module.exports = function (grunt) {
           },
           js: {
             files: {
-              'dist/js/deploy.js': ['lib/*/*.js']
+              'dist/js/deploy.js': [
+                      'lib/effects/object.js', 
+                      'lib/*/*.js', 
+                      'src/*.js'
+                      ]
             }
           }
         },
