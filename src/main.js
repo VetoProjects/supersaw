@@ -3,12 +3,12 @@ var myMixer = mixer();
 var player1 = document.getElementById('player1');
 var player2 = document.getElementById('player2');
 
-player.audioFile.addEventListener(
+player1.audioFile.addEventListener(
     'change',
     function(e) { myMixer.player1.load(this.files[0]); },
     false
 );
-layer1.volume.addEventListener(
+player1.volume.addEventListener(
     'input',
     function(e) { myMixer.player1.volume(this.value / this.max); },
     false
@@ -18,7 +18,7 @@ player1.high.addEventListener(
     function(e) { myMixer.player1.high(this.value / this.max); },
     false
 );
-layer1.middle.addEventListener(
+player1.middle.addEventListener(
     'input',
     function(e) { myMixer.player1.middle(this.value / this.max); },
     false
