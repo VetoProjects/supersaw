@@ -28,6 +28,11 @@ player1.low.addEventListener(
     function(e) { myMixer.player1.low(this.value / this.max); },
     false
 );
+player1.speed.addEventListener(
+    'input',
+    function(e) { myMixer.player1.speed(this.value / 100.0); },
+    false
+);
 
 player2.audioFile.addEventListener(
     'change',
@@ -52,6 +57,11 @@ player2.middle.addEventListener(
 player2.low.addEventListener(
     'input',
     function(e) { myMixer.player2.low(this.value / this.max); },
+    false
+);
+player2.speed.addEventListener(
+    'input',
+    function(e) { myMixer.player2.speed(this.value / 100.0); },
     false
 );
 
