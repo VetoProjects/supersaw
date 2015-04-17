@@ -3,69 +3,44 @@ var myMixer = mixer();
 var player1 = document.getElementById('player1');
 var player2 = document.getElementById('player2');
 
-player1.audioFile.addEventListener(
-    'change',
-    function(e) { myMixer.player1.load(this.files[0]); },
-    false
-);
-player1.volume.addEventListener(
-    'input',
-    function(e) { myMixer.player1.volume(this.value / this.max); },
-    false
-);
-player1.high.addEventListener(
-    'input',
-    function(e) { myMixer.player1.high(this.value / this.max); },
-    false
-);
-player1.middle.addEventListener(
-    'input',
-    function(e) { myMixer.player1.middle(this.value / this.max); },
-    false
-);
-player1.low.addEventListener(
-    'input',
-    function(e) { myMixer.player1.low(this.value / this.max); },
-    false
-);
-player1.speed.addEventListener(
-    'input',
-    function(e) { myMixer.player1.speed(this.value / 100.0); },
-    false
-);
-myMixer.player1.visual.canvas(player1.querySelector('.visual'));
 
-player2.audioFile.addEventListener(
-    'change',
-    function(e) { myMixer.player2.load(this.files[0]); },
-    false
-);
-player2.volume.addEventListener(
-    'input',
-    function(e) { myMixer.player2.volume(this.value / this.max); },
-    false
-);
-player2.high.addEventListener(
-    'input',
-    function(e) { myMixer.player2.high(this.value / this.max); },
-    false
-);
-player2.middle.addEventListener(
-    'input',
-    function(e) { myMixer.player2.middle(this.value / this.max); },
-    false
-);
-player2.low.addEventListener(
-    'input',
-    function(e) { myMixer.player2.low(this.value / this.max); },
-    false
-);
-player2.speed.addEventListener(
-    'input',
-    function(e) { myMixer.player2.speed(this.value / 100.0); },
-    false
-);
-myMixer.player2.visual.canvas(player2.querySelector('.visual'));
+var connectPlayer = function(player, formId) {
+    form = document.getElementById(formId);
+    form.audioFile.addEventListener(
+        'change',
+        function(e) { player.load(this.files[0]); },
+        false
+    );
+    form.volume.addEventListener(
+        'input',
+        function(e) { player.volume(this.value / this.max); },
+        false
+    );
+    form.high.addEventListener(
+        'input',
+        function(e) { player.high(this.value / this.max); },
+        false
+    );
+    form.middle.addEventListener(
+        'input',
+        function(e) { player.middle(this.value / this.max); },
+        false
+    );
+    form.low.addEventListener(
+        'input',
+        function(e) { player.low(this.value / this.max); },
+        false
+    );
+    form.speed.addEventListener(
+        'input',
+        function(e) { player.speed(this.value / 100.0); },
+        false
+    );
+    player.visual.canvas(form.querySelector('.visual'));
+};
+
+connectPlayer(myMixer.player1, 'player1');
+connectPlayer(myMixer.player2, 'player2');
 
 document.getElementById('crossfader').addEventListener(
     'input',
