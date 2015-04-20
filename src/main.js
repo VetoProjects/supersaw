@@ -16,6 +16,17 @@ var connectPlayer = function(player, formId) {
         function(e) { player.volume(this.value / this.max); },
         false
     );
+    // Time
+    form.play.addEventListener(
+        'click',
+        function(e) { player.play(); },
+        false
+    );
+    form.pause.addEventListener(
+        'click',
+        function(e) { player.pause(); },
+        false
+    );
     form.high.addEventListener(
         'input',
         function(e) { player.high(this.value / this.max); },
