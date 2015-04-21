@@ -39,12 +39,12 @@ module.exports = function (grunt) {
         },
         watch: {
             prod: {
-                files: ['**/*.js', '!dist/js/*'],
-                tasks: ['uglify:js', 'gjslint:js']
+                files: ['**/*.js', 'html/**/*.html', '!dist/js/*'],
+                tasks: ['uglify:js', 'gjslint:js', 'preprocess:prod']
             },
             dev: {
-                files: ['**/*.js', '!dist/js/*'],
-                tasks: ['gjslint:js']
+                files: ['**/*.js', 'html/**/*.html', '!dist/js/*'],
+                tasks: ['gjslint:js', 'preprocess:dev']
            }
         },
         concurrent: {
