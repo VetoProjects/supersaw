@@ -6,6 +6,10 @@ body {
   font-size: 16px;
 }
 
+.spacing {
+  margin: 5%;
+}
+
 label {
   display: inline-block;
   width: 100px;
@@ -18,17 +22,33 @@ input {
   margin: 1em;
 }
 
+select {
+  margin: 1em;
+  background: lightgray;
+  border-radius: 5px;
+  border: none;
+  border-bottom: 2px solid #909090;
+  border-right: 2px solid #999999;
+  width: 130px;
+}
+
+select:hover {
+  background: #909090;
+  border-bottom: 1px solid #a0a0a0;
+  border-right: 1px solid #aaaaaa;
+}
+
 input[type="button"] {
-  background: #a0a0a0;
+  background: lightgray;
   border: none;
   border-radius: 5px;
   margin-left: 75px;
-  border-bottom: 1px solid #e0e0e0;
-  border-right: 1px solid #eeeeee;
+  border-bottom: 2px solid #909090;
+  border-right: 2px solid #999999;
 }
 
 input[type="button"]:hover {
-  background: #707070;
+  background: #909090;
   border-bottom: 1px solid #a0a0a0;
   border-right: 1px solid #aaaaaa;
 }
@@ -110,7 +130,7 @@ input[type="range"]::-webkit-slider-thumb:hover{
 input[type="range"]::-webkit-slider-thumb:after {
     content:'';
     position:absolute;
-    height: 1.5em;
+    height: 13px;
     width: 1px;
     margin-left: 1%;
     background: black;
