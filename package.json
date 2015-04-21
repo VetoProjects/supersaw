@@ -11,6 +11,7 @@
         "grunt-contrib-watch" : "~0.6.0",
         "grunt-contrib-uglify": "~0.3.2",
         "grunt-gjslint": "~0.1.4",
-        "grunt-concurrent": "~1.0.0"
+        "grunt-concurrent": "~1.0.0",
+        "grunt-preprocess": "~4.1.0"
     }
 }

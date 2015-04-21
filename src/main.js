@@ -2,6 +2,20 @@ var myMixer = mixer();
 
 var player1 = document.getElementById('player1');
 var player2 = document.getElementById('player2');
+var inputs = null;
+
+navigator.requestMIDIAccess()
+  .then(function(MIDIAccess) {
+    inputs = MIDIAccess.inputs.values();
+
+    for (var input = inputs.next(); input && !input.done; input = inputs.next()) {
+      input.value.addEventListener('midimessage', function(val) {
+        console.log(val);
+      });
+    }
+  }, function(e) {
+    alert(e);
+});
 
 
 var connectPlayer = function(player, formId) {
@@ -47,6 +61,19 @@ var connectPlayer = function(player, formId) {
         function(e) { player.speed(this.value / 100.0); },
         false
     );
+    form.effects.addEventListener(
+        'change',
+        function(e) {
+          var i = this.options[this.selectedIndex].value;
+          player.effect(effects[i] || null);
+        },
+        false
+    );
+
+    for (key in effects) {
+        form.effects.appendChild(new Option(key));
+    }
+
     player.visual.canvas(form.querySelector('.visual'));
 };
 

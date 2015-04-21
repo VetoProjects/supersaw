@@ -57,6 +57,16 @@ module.exports = function (grunt) {
             dev: {
                 tasks: ['watch:dev']
             }
+        },
+        preprocess: {
+            dev: {
+                src: './html/dev/index.html',
+                dest: './index.html'
+            },
+            prod: {
+                src: './html/prod/index.html',
+                dest: './index.html'
+            }
         }
     });
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -64,7 +74,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-gjslint');
     grunt.loadNpmTasks('grunt-concurrent');
+    grunt.loadNpmTasks('grunt-preprocess');
 
-    grunt.registerTask('default', ['gjslint', 'uglify', 'connect', 'concurrent:prod']);
-    grunt.registerTask('dev', ['gjslint', 'connect', 'concurrent:dev']);
+    grunt.registerTask('prod', ['gjslint', 'uglify', 'connect', 'preprocess:prod', 'concurrent:prod']);
+    grunt.registerTask('dev', ['gjslint', 'connect', 'preprocess:dev', 'concurrent:dev']);
+    grunt.registerTask('default', ['dev']);
 }
