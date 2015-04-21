@@ -37,6 +37,11 @@ var connectPlayer = function(player, formId) {
         function(e) { player.time(this.value); },
         false
     );
+    form.pitch.addEventListener(
+        'input',
+        function(e) { player.pitch(this.value); },
+        false
+    );
     form.play.addEventListener(
         'click',
         function(e) { player.play(); },
@@ -93,6 +98,6 @@ connectPlayer(myMixer.player2, 'player2');
 
 document.getElementById('crossfader').addEventListener(
     'input',
-    function(e) { myMixer.crossfader.fade(this.value); },
+    function(e) { myMixer.crossfader.fade(parseFloat(this.value)); },
     false
 );

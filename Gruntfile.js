@@ -11,7 +11,7 @@ module.exports = function (grunt) {
         },
         gjslint: {
             options: {
-              flags: [ '--disable 110' ],
+              flags: [ '--disable 110', '--nojsdoc' ],
               reporter: {
                 name: 'console'
               }

@@ -34,8 +34,8 @@ select {
 
 select:hover {
   background: #909090;
-  border-bottom: 1px solid #a0a0a0;
-  border-right: 1px solid #aaaaaa;
+  border-bottom: 2px solid #a0a0a0;
+  border-right: 2px solid #aaaaaa;
 }
 
 input[type="button"] {
@@ -49,8 +49,8 @@ input[type="button"] {
 
 input[type="button"]:hover {
   background: #909090;
-  border-bottom: 1px solid #a0a0a0;
-  border-right: 1px solid #aaaaaa;
+  border-bottom: 2px solid #a0a0a0;
+  border-right: 2px solid #aaaaaa;
 }
 
 canvas {
