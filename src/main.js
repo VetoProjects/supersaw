@@ -4,19 +4,41 @@ var player1 = document.getElementById('player1');
 var player2 = document.getElementById('player2');
 var inputs = null;
 
+function midi_curry(x,y,z,out){
+    return function(){
+        out.send([x,y,z]);
+        console.log([x,y,z]);
+    }
+}
+
 if (navigator.requestMIDIAccess) {
     navigator.requestMIDIAccess()
-      .then(function(MIDIAccess) {
-        inputs = MIDIAccess.inputs.values();
-
-        for (var input = inputs.next(); input && !input.done; input = inputs.next()) {
-          input.value.addEventListener('midimessage', function(val) {
-            console.log(val);
-          });
-        }
-      }, function(e) {
-        alert(e);
-    });
+        .then(function(MIDIAccess) {
+            var inputs = MIDIAccess.inputs.values();
+            for (var input = inputs.next(); input && !input.done; input = inputs.next()) {
+                console.log(input);
+                var outputs = MIDIAccess.outputs.values();
+                for (var output = outputs.next(); output && !output.done; output = outputs.next()) {
+                    if(output.value.name === input.value.name){
+                        var out = output.value;
+                        console.log(out);
+                        for(var i = 0xB0; i < 0xBF; ++i){
+                            for(var j = 0; j < 0x7F; ++j){
+                                for(var k = 0x7F; k < 0x80; k += 13){
+                                    setTimeout(midi_curry(i,j,k,out), ((i - 0xB0)) * 1000);
+                                }
+                            }
+                        }
+                        input.value.addEventListener('midimessage', function(val) {
+                            console.log(val.data);
+                            out.send(val.data);
+                        });
+                    }
+                }
+            }
+        }, function(e) {
+            alert(e);
+        });
 }
 
 
@@ -35,11 +57,6 @@ var connectPlayer = function(player, formId) {
     form.time.addEventListener(
         'input',
         function(e) { player.time(this.value); },
-        false
-    );
-    form.pitch.addEventListener(
-        'input',
-        function(e) { player.pitch(this.value); },
         false
     );
     form.play.addEventListener(
@@ -80,6 +97,11 @@ var connectPlayer = function(player, formId) {
         },
         false
     );
+    form.pitch.addEventListener(
+        'input',
+        function(e) { player.pitch(this.value); },
+        false
+    );
 
     for (key in effects) {
         form.effects.appendChild(new Option(key));
@@ -98,6 +120,6 @@ connectPlayer(myMixer.player2, 'player2');
 
 document.getElementById('crossfader').addEventListener(
     'input',
-    function(e) { myMixer.crossfader.fade(parseFloat(this.value)); },
+    function(e) { myMixer.crossfader.fade(this.value); },
     false
 );
