@@ -5,7 +5,7 @@ var player2 = document.getElementById('player2');
 
 
 var connectPlayer = function(player, formId) {
-    form = document.getElementById(formId);
+    var form = document.getElementById(formId);
     form.audioFile.addEventListener(
         'change',
         function(e) { player.load(this.files[0]); },
@@ -13,10 +13,14 @@ var connectPlayer = function(player, formId) {
     );
     form.volume.addEventListener(
         'input',
-        function(e) { player.volume(this.value / this.max); },
+        function(e) { player.volume(this.value); },
         false
     );
-    // Time
+    form.time.addEventListener(
+        'input',
+        function(e) { player.time(this.value); },
+        false
+    );
     form.play.addEventListener(
         'click',
         function(e) { player.play(); },
@@ -29,24 +33,28 @@ var connectPlayer = function(player, formId) {
     );
     form.high.addEventListener(
         'input',
-        function(e) { player.high(this.value / this.max); },
+        function(e) { player.high(this.value); },
         false
     );
     form.middle.addEventListener(
         'input',
-        function(e) { player.middle(this.value / this.max); },
+        function(e) { player.middle(this.value); },
         false
     );
     form.low.addEventListener(
         'input',
-        function(e) { player.low(this.value / this.max); },
+        function(e) { player.low(this.value); },
         false
     );
     form.speed.addEventListener(
         'input',
-        function(e) { player.speed(this.value / 100.0); },
+        function(e) { player.speed(this.value); },
         false
     );
+    player.addTimeUpdateCallback(function() {
+        form.time.max = Math.ceil(player.getDuration());
+        form.time.value = Math.round(player.getTime());
+    });
     player.visual.canvas(form.querySelector('.visual'));
 };
 
@@ -55,6 +63,6 @@ connectPlayer(myMixer.player2, 'player2');
 
 document.getElementById('crossfader').addEventListener(
     'input',
-    function(e) { myMixer.crossfader.fade((this.value / this.max) * 2 - 1); },
+    function(e) { myMixer.crossfader.fade(this.value); },
     false
 );
