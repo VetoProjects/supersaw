@@ -3,26 +3,34 @@ body {
   color: white;
   font-family: sans-serif;
   font-weight: 200;
+  font-size: 16px;
 }
 
-input[type="file"] {/* 
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
-    cursor: pointer;
-    opacity: 0;
-    filter: alpha(opacity=0);*/
+label {
+  display: inline-block;
+  width: 100px;
+  text-align: right;
+  position: relative;
+  vertical-align: middle;
+}
+
+input {
+  margin: 1em;
 }
 
 input[type="button"] {
   background: #a0a0a0;
   border: none;
   border-radius: 5px;
-  margin: 5px;
-  margin-left: 30px;
+  margin-left: 75px;
+  border-bottom: 1px solid #e0e0e0;
+  border-right: 1px solid #eeeeee;
+}
+
+input[type="button"]:hover {
+  background: #707070;
+  border-bottom: 1px solid #a0a0a0;
+  border-right: 1px solid #aaaaaa;
 }
 
 canvas {
@@ -45,13 +53,8 @@ canvas {
 }
 
 .centered {
-  margin-left: 40%;
-  width: 20%;
-}
-
-#crossfader {
-  position: relative;
-  vertical-align: bottom;
+  margin-left: 38%;
+  width: 24%;
 }
 
 input[type="range"]{
@@ -81,10 +84,10 @@ input[type="range"]:hover{
 }
 
 input[type="range"]::-webkit-slider-thumb{
-   -webkit-appearance:none ;  
-   width:20px;
-   height:10px;
-    -webkit-border-radius: 8px;
+    -webkit-appearance:none ;  
+    width:30px;
+    height:15px;
+    -webkit-border-radius: 2px;
     border:1px solid black;
 
     background: rgb(210, 210, 210);
@@ -93,13 +96,22 @@ input[type="range"]::-webkit-slider-thumb{
  }
 
 input[type="range"]::-webkit-slider-thumb:hover{
-   -webkit-appearance:none;  
-   width:20px;
-   height:10px;
-    -webkit-border-radius: 8px;
+    -webkit-appearance:none;  
+    width:30px;
+    height:15px;
+    -webkit-border-radius: 1px;
     background-color:rgb(150, 150, 150);
     border:1px solid black;
 
     background: -webkit-gradient(linear, left top, right top, color-stop(0%,#1d2e38), color-stop(50%,#2b4254), color-stop(100%,#2b4254));
     background: -webkit-linear-gradient(left, #1d2e38 0%,#2b4254 50%,#2b4254 100%);
  }
+
+input[type="range"]::-webkit-slider-thumb:after {
+    content:'';
+    position:absolute;
+    height: 1.5em;
+    width: 1px;
+    margin-left: 1%;
+    background: black;
+}*/
