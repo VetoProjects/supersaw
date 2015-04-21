@@ -4,18 +4,20 @@ var player1 = document.getElementById('player1');
 var player2 = document.getElementById('player2');
 var inputs = null;
 
-navigator.requestMIDIAccess()
-  .then(function(MIDIAccess) {
-    inputs = MIDIAccess.inputs.values();
+if (navigator.requestMIDIAccess) {
+    navigator.requestMIDIAccess()
+      .then(function(MIDIAccess) {
+        inputs = MIDIAccess.inputs.values();
 
-    for (var input = inputs.next(); input && !input.done; input = inputs.next()) {
-      input.value.addEventListener('midimessage', function(val) {
-        console.log(val);
-      });
-    }
-  }, function(e) {
-    alert(e);
-});
+        for (var input = inputs.next(); input && !input.done; input = inputs.next()) {
+          input.value.addEventListener('midimessage', function(val) {
+            console.log(val);
+          });
+        }
+      }, function(e) {
+        alert(e);
+    });
+}
 
 
 var connectPlayer = function(player, formId) {
