@@ -3,6 +3,10 @@ var myMixer = mixer();
 var player1 = document.getElementById('player1');
 var player2 = document.getElementById('player2');
 
+var convertRange = function(val, prerange, postrange) {
+    return (val - prerange[0]) * (postrange[1] - postrange[0]) / (prerange[1] - prerange[0]) + postrange[0];
+};
+
 var connectPlayer = function(player, formId) {
     var form = document.getElementById(formId);
     form.audioFile.addEventListener(
@@ -60,7 +64,11 @@ var connectPlayer = function(player, formId) {
     );
     form.pitch.addEventListener(
         'input',
-        function(e) { player.pitch(this.value); },
+        function(e) {
+          var val = Math.round(convertRange(parseFloat(this.value), [0, 1], [-24, 24]));
+          console.log(this.value, val);
+          player.pitch(val);
+        },
         false
     );
 
