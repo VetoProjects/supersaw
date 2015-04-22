@@ -10,6 +10,11 @@ body {
   margin: 5%;
 }
 
+.bottom {
+  margin-top: 1%;
+  margin-left: 5%;
+}
+
 label {
   display: inline-block;
   width: 100px;
@@ -36,6 +41,10 @@ select:hover {
   background: #909090;
   border-bottom: 2px solid #a0a0a0;
   border-right: 2px solid #aaaaaa;
+}
+
+input[type="file"] {
+  width: 65%;
 }
 
 input[type="button"] {
