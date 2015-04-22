@@ -66,7 +66,6 @@ var connectPlayer = function(player, formId) {
         'input',
         function(e) {
           var val = Math.round(convertRange(parseFloat(this.value), [0, 1], [-24, 24]));
-          console.log(this.value, val);
           player.pitch(val);
         },
         false
