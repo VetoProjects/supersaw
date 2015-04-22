@@ -4,10 +4,10 @@ var player1 = document.getElementById('player1');
 var player2 = document.getElementById('player2');
 var inputs = null;
 
-function midi_curry(x,y,z,out){
-    return function(){
-        out.send([x,y,z]);
-        console.log([x,y,z]);
+function midi_curry(x, y, z, out) {
+    return function() {
+        out.send([x, y, z]);
+        console.log([x, y, z]);
     }
 }
 
@@ -19,16 +19,16 @@ if (navigator.requestMIDIAccess) {
                 console.log(input);
                 var outputs = MIDIAccess.outputs.values();
                 for (var output = outputs.next(); output && !output.done; output = outputs.next()) {
-                    if(output.value.name === input.value.name){
+                    if (output.value.name === input.value.name) {
                         var out = output.value;
                         console.log(out);
-                        for(var i = 0xB0; i < 0xBF; ++i){
-                            for(var j = 0; j < 0x7F; ++j){
-                                for(var k = 0x7F; k < 0x80; k += 13){
-                                    setTimeout(midi_curry(i,j,k,out), ((i - 0xB0)) * 1000);
+                        /*for (var i = 0xB0; i < 0xBF; ++i) {
+                            for (var j = 0; j < 0x7F; ++j) {
+                                for (var k = 0x7F; k < 0x80; k += 13) {
+                                    setTimeout(midi_curry(i, j, k, out), ((i - 0xB0)) * 1000);
                                 }
                             }
-                        }
+                        }*/
                         input.value.addEventListener('midimessage', function(val) {
                             console.log(val.data);
                             out.send(val.data);
