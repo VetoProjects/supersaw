@@ -3,6 +3,18 @@ var myMixer = mixer();
 var player1 = document.getElementById('player1');
 var player2 = document.getElementById('player2');
 
+var sliders = document.querySelectorAll('input[type=range]');
+for (var i = 0; i < sliders.length; ++i) {
+    sliders[i].addEventListener(
+        'dblclick',
+        function() {
+            this.value = this.defaultValue;
+            this.dispatchEvent(new Event('input'));
+        },
+        false
+    );
+}
+
 var connectPlayer = function(player, formId) {
     var form = document.getElementById(formId);
     form.audioFile.addEventListener(
