@@ -111,6 +111,9 @@ midi.onmessage = function(msg) {
 connectPlayer(myMixer.player1, 'player1');
 connectPlayer(myMixer.player2, 'player2');
 
+myMixer.player1.volumeMeter.onupdate(midi.leftBar);
+myMixer.player2.volumeMeter.onupdate(midi.rightBar);
+
 document.getElementById('crossfader').addEventListener(
     'input',
     function(e) { myMixer.crossfader.fade(this.value); },
