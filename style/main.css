@@ -113,7 +113,7 @@ input[type="range"]:hover{
 }
 
 input[type="range"]::-webkit-slider-thumb{
-    -webkit-appearance:none ;  
+    -webkit-appearance:none ;
     width:30px;
     height:15px;
     -webkit-border-radius: 2px;
@@ -125,7 +125,7 @@ input[type="range"]::-webkit-slider-thumb{
  }
 
 input[type="range"]::-webkit-slider-thumb:hover{
-    -webkit-appearance:none;  
+    -webkit-appearance:none;
     width:30px;
     height:15px;
     -webkit-border-radius: 1px;
@@ -141,6 +141,6 @@ input[type="range"]::-webkit-slider-thumb:after {
     position:absolute;
     height: 13px;
     width: 1px;
-    margin-left: 1%;
+    margin-left: 15px;
     background: black;
-}
+}*/
