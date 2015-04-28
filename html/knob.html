@@ -120,20 +120,22 @@
         if (min)  this.min = parseFloat(min);
         if (max)  this.max = parseFloat(max);
         if (step) this.step = step;
-        
+
         this.value = this.defaultValue = parseFloat(val || (_max + _min) / 2.0);
 
 
         // Handle mouse events
-        function getPos(e) {
-            return { x: e.clientX, y: e.clientY };
-        }
         var _drag = null;
+        function mousedown(e) {
+            _drag = { x: e.clientX, y: e.clientY, value: _self.value };
+            window.addEventListener('mousemove', mousemove, true);
+            window.addEventListener('mouseup', mouseup, true);
+            e.preventDefault();
+            return e.returnValue = false;
+        }
         function mousemove(e) {
-            var pos = getPos(e);
-            if(pos.x + pos.y !== 0) {
-                _self.value += ((pos.x - _drag.x) + (_drag.y - pos.y)) / 3 * _self.step;
-                _drag = pos;
+            if(e.clientX && e.clientY) {
+                _self.value = _drag.value + Math.round(((_drag.x - e.clientX) + (e.clientY - _drag.y)) / 3) * _self.step;
             }
             e.preventDefault();
             return e.returnValue = false;
@@ -141,13 +143,6 @@
         function mouseup(e) {
             window.removeEventListener('mousemove', mousemove, true);
             window.removeEventListener('mouseup', mouseup, true);
-            e.preventDefault();
-            return e.returnValue = false;
-        }
-        function mousedown(e) {
-            _drag = getPos(e);
-            window.addEventListener('mousemove', mousemove, true);
-            window.addEventListener('mouseup', mouseup, true);
             e.preventDefault();
             return e.returnValue = false;
         }
