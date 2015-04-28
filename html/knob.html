@@ -9,7 +9,7 @@
             background-image: url('img/knob.png');
             background-size: 100%;
             border-radius: 100%;
-            border-size: 0px;
+            border: none;
         }
         ::-moz-range-thumb{
             background: none;
@@ -28,7 +28,7 @@
            background-image: url('img/knob.png');
            background-size: 100%;
            border-radius: 100%;
-           border-size: 0px;
+           border: none;
         }
         ::-webkit-slider-thumb {
             -webkit-appearance: none;
@@ -135,7 +135,7 @@
         }
         function mousemove(e) {
             if(e.clientX && e.clientY) {
-                _self.value = _drag.value + Math.round(((_drag.x - e.clientX) + (e.clientY - _drag.y)) / 3) * _self.step;
+                _self.value = _drag.value + Math.round(((e.clientX - _drag.x) + (_drag.y - e.clientY)) / 3) * _self.step;
             }
             e.preventDefault();
             return e.returnValue = false;
