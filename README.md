@@ -14,6 +14,8 @@ The midi features were tested with an Behringer CMD MM-1. It should understand a
 devices, but returning fancy instructions (e.g. if your midi device supports color change
 on pressing a button) may fail.
 
+For best performance and experience, please use Google Chrome (we're really sorry).
+
 ## Building and Running
 
 We advise you to go to [the website](supersaw.tobsic.de) to play with the thingie, but
