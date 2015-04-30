@@ -24,6 +24,22 @@ body {
   margin-left: 5%;
 }
 
+.footer {
+  margin-top: 5%;
+  margin-left: 25%;
+  width: 50%;
+  font-size: 14px;
+}
+
+a {
+  color: grey;
+  text-decoration: none;
+}
+
+a:hover{
+  color: lightgrey;
+}
+
 label {
   display: inline-block;
   width: 100px;
