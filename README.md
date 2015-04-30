@@ -15,7 +15,8 @@ devices, but returning fancy instructions (e.g. if your midi device supports col
 on pressing a button) may fail.
 
 For best performance and experience, please use Google Chrome (we're really sorry).
-Namely, the Firefox audio tag does not support speed adjustment natively, which sucks.
+Namely, the Firefox audio tag does not support speed adjustment natively, which sucks for us.
+Also it does not implement the WebMIDI API just yet, which sucks even harder for us.
 
 ## Building and Running
 
