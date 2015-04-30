@@ -174,3 +174,32 @@ input[type="range"]:not([is="veto-knob"])::-webkit-slider-thumb:after {
     margin-left: 15px;
     background: black;
 }
+
+input[type="range"]:not([is="veto-knob"])::-moz-range-thumb{
+    width:28px;
+    height:13px;
+    border-radius: 2px;
+    border:1px solid black;
+
+    background: rgb(210, 210, 210);
+    background: -moz-linear-gradient(left, #d0d0d0 0%,#b0b0b0 50%,#909090 100%);
+ }
+
+input[type="range"]:not([is="veto-knob"])::-moz-range-thumb:hover{
+    width:28px;
+    height:13px;
+    border-radius: 1px;
+    background-color:rgb(150, 150, 150);
+    border:1px solid black;
+
+    background: -moz-linear-gradient(left, #1d2e38 0%,#2b4254 50%,#2b4254 100%);
+ }
+
+input[type="range"]:not([is="veto-knob"])::-moz-range-thumb:after {
+    content:'';
+    position:absolute;
+    height: 13px;
+    width: 1px;
+    margin-left: 15px;
+    background: black;
+}
