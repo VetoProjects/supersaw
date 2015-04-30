@@ -48,10 +48,6 @@ label {
   vertical-align: middle;
 }
 
-label[class=slide] {
-  vertical-align: super;
-}
-
 input {
   margin: 0.5em 1em;
 }
