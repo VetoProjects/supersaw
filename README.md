@@ -15,6 +15,7 @@ devices, but returning fancy instructions (e.g. if your midi device supports col
 on pressing a button) may fail.
 
 For best performance and experience, please use Google Chrome (we're really sorry).
+Namely, the Firefox audio tag does not support speed adjustment natively, which sucks.
 
 ## Building and Running
 
@@ -22,6 +23,10 @@ We advise you to go to [the website](supersaw.tobsic.de) to play with the thingi
 if you want to run a local copy (or the server is down), clone the repo, run `npm install`
 and `grunt` (if you want non-minified js) or `grunt prod` (if you want slightly speedier
 minified js) and you're good to go. The server should live in `localhost:8000`. Enjoy!
+
+**Note:** For using a controller, you have to enable the MIDI API manually for now.
+It will be enabled by default in the next release of Chrome. [Here](http://stackoverflow.com/a/21821208/2366322)
+is a concise answer on how to enable it yourself.
 
 ## For tinkerers
 
