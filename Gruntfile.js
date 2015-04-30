@@ -32,6 +32,8 @@ module.exports = function (grunt) {
               'dist/js/deploy.js': [
                       'lib/effects/object.js', 
                       'lib/*/*.js', 
+                      //Does not work, no "of" support in gjslint
+                      //'lib/*.js', 
                       'src/*.js'
                       ]
             }
