@@ -20,7 +20,7 @@ Also it does not implement the WebMIDI API just yet, which sucks even harder for
 
 ## Building and Running
 
-We advise you to go to [the website](supersaw.tobsic.de) to play with the thingie, but
+We advise you to go to [the website](http://supersaw.tobsic.de) to play with the thingie, but
 if you want to run a local copy (or the server is down), clone the repo, run `npm install`
 and `grunt` (if you want non-minified js) or `grunt prod` (if you want slightly speedier
 minified js) and you're good to go. The server should live in `localhost:8000`. Enjoy!
