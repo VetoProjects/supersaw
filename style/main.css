@@ -49,7 +49,7 @@ label {
 }
 
 input {
-  margin: 0.5em 1em;
+  margin: 0.7em 1em;
 }
 
 select {
@@ -114,6 +114,7 @@ canvas {
 input[is="veto-knob"] {
     width: 25px;
     height: 25px;
+    vertical-align: middle;
 }
 
 input[type="range"]:not([is="veto-knob"]){
