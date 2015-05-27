@@ -4,7 +4,7 @@ html {
 
 body {
   height: 100%;
-  background-image: url('/img/DJ1.jpg');
+  background-image: #000000;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center top;
@@ -127,7 +127,7 @@ canvas {
   margin-right: 10%;
   background: #302A2A;
   opacity: 0.7;
-  height:545px;
+  height:680px;
 }
 
 #player1 {
@@ -140,14 +140,15 @@ canvas {
 
 .centered {
   border-radius: 0.5em;
-  background: #433F3F;
-  margin-left: 38%;
-  padding-left:40px;
-  padding-bottom:60px;
+  /*background: #433F3F;height:545px;
+  margin-left: 38%;*/
+  padding-left:650px;
+
   padding-top:30px;
-  width: 21%;
+  
+  width: 50%;
   height:700px;
-  opacity: 0.7;
+  /*opacity: 0.9;*/
   
 }
 

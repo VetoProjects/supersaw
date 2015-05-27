@@ -20,6 +20,7 @@
                     <!--button type="file" id="filechooser1" name="audioFile" accept="audio/*"><img src="/img/suche.jpg" alt="" width="60px" height="60px"></button-->
 					<input type="button" id="filechooser1" value="" accept="audio/*" style="background:url(/img/1.jpg) no-repeat;height='15px';position: relative;" width="60px" height="60px">
 					<input type="file" id="my_file1" name="audioFile">
+
                 <br>
 				<label class="slide" for="volume1">Volume:</label>
 					<input type="range" id="volume1" name="volume" min="0" max="1" step="0.005" value="1" />
@@ -111,9 +112,7 @@
             </form>
 
             <form class="centered" action=".">
-				<div class="bottom">
-                <input type="button" id="crossfader" value="Start Learning" /><span id="learnMessage"></span>
-            </div>
+				
                 <label class="slide" for="crossfader">Crossfader:</label>
                 <input type="range" id="crossfader" min="-1" max="1" step="0.01" value="0" />
 				
