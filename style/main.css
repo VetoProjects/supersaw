@@ -275,3 +275,19 @@ input[type="range"]:not([is="veto-knob"])::-moz-range-thumb:after {
     margin: 10px;
     cursor: pointer;
 }
+
+.play{
+	background: #f9f9f9;
+    border: 3px solid #0AFB33;
+	height: 22px;
+	width:40px;
+	border-radius: 10px;
+}
+
+.pause{
+	background: #f9f9f9;
+    border: 3px solid #0AFB33;
+	height: 22px;
+	width:40px;
+	border-radius: 10px;
+}
