@@ -22,6 +22,14 @@ var connectPlayer = function(player, formId) {
         function(e) { player.load(this.files[0]); },
         false
     );
+
+	document.getElementById('filechooser1').onclick = function() {
+document.getElementById('my_file1').click();
+};
+	
+document.getElementById('filechooser2').onclick = function() {
+document.getElementById('my_file2').click();
+};
     form.volume.addEventListener(
         'input',
         function(e) { player.volume(this.value); },

@@ -4,7 +4,7 @@ html {
 
 body {
   height: 100%;
-  background-image: url('/img/background.jpg');
+  background-image: url('/img/DJ1.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center top;
@@ -15,13 +15,41 @@ body {
   font-size: 16px;
 }
 
+#file-open{
+  background:transparent url('/img/suche.jpg') no-repeat center top;
+}
+
 .spacing {
   margin: 5%;
+  clear:both;
+  width: 1200px;
+  height:580px;
+  position:relative;
+  /*background-image:url('/img/DJ1.jpg');  #433F3F*/
+  background-color: #302A2A;
+  border-radius: 0.5em;
+  margin: auto;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 40px;
+  opacity: 0.7;
+}
+
+.function{
+  border-style: solid;
+  border-width: 1px;
+  border-color: #0AFB33;
+  border-radius: 0.5em;
+  width: 50%;
+  margin-left: 75px;
 }
 
 .bottom {
+  /*background-color: #302A2A;*/
   margin-top: 1%;
   margin-left: 5%;
+  border-radius: 0.5em;
 }
 
 .footer {
@@ -93,9 +121,13 @@ canvas {
 }
 
 .player {
+  border-radius: 0.5em;
   margin-left: 10%;
   width: 30%;
   margin-right: 10%;
+  background: #302A2A;
+  opacity: 0.7;
+  height:545px;
 }
 
 #player1 {
@@ -107,8 +139,16 @@ canvas {
 }
 
 .centered {
+  border-radius: 0.5em;
+  background: #433F3F;
   margin-left: 38%;
-  width: 24%;
+  padding-left:40px;
+  padding-bottom:60px;
+  padding-top:30px;
+  width: 21%;
+  height:700px;
+  opacity: 0.7;
+  
 }
 
 input[is="veto-knob"] {
@@ -203,4 +243,34 @@ input[type="range"]:not([is="veto-knob"])::-moz-range-thumb:after {
     width: 1px;
     margin-left: 15px;
     background: black;
+}
+
+#my_file1 {
+    display: none;
+}
+
+#filechooser1{
+    background: #f9f9f9;
+    border: 2px solid #0AFB33;
+	height: 43px;
+	width:43px;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+#my_file2 {
+    display: none;
+}
+
+#filechooser2{
+    background: #f9f9f9;
+    border: 2px solid #0AFB33;
+	height: 43px;
+	width:43px;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px;
+    cursor: pointer;
 }
