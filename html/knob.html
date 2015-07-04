@@ -144,6 +144,10 @@
         function mouseup(e) {
             window.removeEventListener('mousemove', mousemove, true);
             window.removeEventListener('mouseup', mouseup, true);
+            if (_self.value != _drag.value) {
+                _self.dispatchEvent(new Event('change'));
+            }
+
             e.preventDefault();
             return e.returnValue = false;
         }
