@@ -19,6 +19,15 @@ var connectPlayer = function(player, formId) {
         function(e) { player.load(this.files[0]); },
         false
     );
+/*document.getElementById('my_file1').addEventListener('change', function() { loadfile(this, audio.sample[0], document.getElementById('filename1')); } , false);
+/*document.getElementById('audiofile2').addEventListener('change', function() { loadfile(this, audio.sample[1], document.getElementById('filename2')); } , false);*/
+/*document.getElementById('filechooser1').addEventListener('click', function() { document.getElementById('my_file1').click(); } , false);*/
+document.getElementById('filechooser1').onclick = function() {
+document.getElementById('my_file1').click();
+};
+document.getElementById('filechooser2').onclick = function() {
+document.getElementById('my_file2').click();
+};
     form.volume.addEventListener(
         'input',
         function(e) { player.volume(this.value); },
