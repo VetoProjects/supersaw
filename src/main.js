@@ -1,8 +1,5 @@
 var myMixer = mixer();
 
-var player1 = document.getElementById('player1');
-var player2 = document.getElementById('player2');
-
 var sliders = document.querySelectorAll('input[type=range]');
 for (var i = 0; i < sliders.length; ++i) {
     sliders[i].addEventListener(
