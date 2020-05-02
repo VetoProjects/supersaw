@@ -30,10 +30,10 @@ module.exports = function (grunt) {
           js: {
             files: {
               'public/dist/js/deploy.js': [
-                      'public/lib/effects/object.js', 
-                      'public/lib/*/*.js', 
+                      'public/lib/effects/object.js',
+                      'public/lib/*/*.js',
                       //Does not work, no "of" support in gjslint
-                      //'public/lib/*.js', 
+                      //'public/lib/*.js',
                       'public/src/*.js'
                       ]
             }
@@ -42,11 +42,18 @@ module.exports = function (grunt) {
         watch: {
             prod: {
                 files: ['public/**/*.js', 'html/**/*.html', '!public/dist/js/*'],
-                tasks: ['uglify:js', 'gjslint:js', 'preprocess:prod']
+                tasks: [
+                  'uglify:js',
+                  // 'gjslint:js',
+                  'preprocess:prod',
+                ]
             },
             dev: {
                 files: ['./public/**/*.js', './html/**/*.html', '!public/dist/js/*'],
-                tasks: ['gjslint:js', 'preprocess:dev']
+                tasks: [
+                  // 'gjslint:js',
+                  'preprocess:dev',
+                ]
            }
         },
         concurrent: {
@@ -83,7 +90,18 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-preprocess');
 
-    grunt.registerTask('prod', ['gjslint', 'uglify', 'connect', 'preprocess:prod', 'concurrent:prod']);
-    grunt.registerTask('dev', ['gjslint', 'connect', 'preprocess:dev', 'concurrent:dev']);
+    grunt.registerTask('prod', [
+      // 'gjslint',
+      'uglify',
+      'connect',
+      'preprocess:prod',
+      'concurrent:prod',
+    ]);
+    grunt.registerTask('dev', [
+      // 'gjslint',
+      'connect',
+      'preprocess:dev',
+      'concurrent:dev',
+    ]);
     grunt.registerTask('default', ['dev']);
 }
