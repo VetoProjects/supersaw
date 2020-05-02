@@ -1,5 +1,3 @@
-var myMixer = mixer();
-
 var sliders = document.querySelectorAll('input[type=range]');
 for (var i = 0; i < sliders.length; ++i) {
     sliders[i].addEventListener(
@@ -84,7 +82,7 @@ document.getElementById('my_file2').click();
         false
     );
 
-    for (key in effects) {
+    for (const key in effects) {
         form.effects.appendChild(new Option(key));
     }
 
@@ -114,14 +112,24 @@ midi.onmessage = function(msg) {
     }, 5000);
 };
 
-connectPlayer(myMixer.player1, 'player1');
-connectPlayer(myMixer.player2, 'player2');
+const initMixer = () => {
+    window.removeEventListener('click', initMixer);
+    window.removeEventListener('touchstart', initMixer);
 
-myMixer.player1.volumeMeter.onupdate(midi.leftBar);
-myMixer.player2.volumeMeter.onupdate(midi.rightBar);
+    var myMixer = mixer();
 
-document.getElementById('crossfader').addEventListener(
-    'input',
-    function(e) { myMixer.crossfader.fade(this.value); },
-    false
-);
+    connectPlayer(myMixer.player1, 'player1');
+    connectPlayer(myMixer.player2, 'player2');
+
+    myMixer.player1.volumeMeter.onupdate(midi.leftBar);
+    myMixer.player2.volumeMeter.onupdate(midi.rightBar);
+
+    document.getElementById('crossfader').addEventListener(
+      'input',
+      function (e) { myMixer.crossfader.fade(this.value); },
+      false
+    );
+};
+
+window.addEventListener('click', initMixer, true);
+window.addEventListener('touchstart', initMixer, true);
