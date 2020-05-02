@@ -1,4 +1,25 @@
+const scriptTag = path => `<script type="text/javascript" charset="utf-8" src="${path}"></script>`;
+const scriptTags = paths => paths.map(scriptTag).join('\n');
+
 module.exports = function (grunt) {
+   const jsFiles = [
+      'lib/widgets/VolumeMeter.js',
+      'lib/widgets/analyzer.js',
+      'lib/widgets/equalizer.js',
+      'lib/widgets/crossfader.js',
+      'lib/widgets/pitch.js',
+      'lib/widgets/player.js',
+      'lib/widgets/mixer.js',
+      'lib/effects/object.js',
+      'lib/effects/lowPass.js',
+      'lib/effects/moog.js',
+      'lib/effects/bitcrusher.js',
+      'lib/effects/noiseConvolver.js',
+      'lib/effects/pinking.js',
+      'lib/midi.js',
+      'src/main.js',
+      'lib/widgets/knob.js',
+    ];
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         connect: {
@@ -29,13 +50,7 @@ module.exports = function (grunt) {
           },
           js: {
             files: {
-              'public/dist/js/deploy.js': [
-                      'public/lib/effects/object.js',
-                      'public/lib/*/*.js',
-                      //Does not work, no "of" support in gjslint
-                      //'public/lib/*.js',
-                      'public/src/*.js'
-                      ]
+              'public/dist/js/deploy.js': jsFiles.map(file => `public/${file}`)
             }
           }
         },
@@ -73,13 +88,19 @@ module.exports = function (grunt) {
                 dest: './public/index.html',
                 options: {
                     context: {
-                      NODE_ENV: 'production'
+                      NODE_ENV: 'production',
+                      SCRIPTS: scriptTags(['dist/js/deploy.js'])
                     }
                 }
             },
             dev: {
                 src: './html/index.html',
                 dest: './public/index.html',
+                options: {
+                    context: {
+                      SCRIPTS: scriptTags(jsFiles)
+                    },
+                }
             }
         }
     });

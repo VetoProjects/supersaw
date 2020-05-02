@@ -126,27 +126,6 @@
                 shift code.</p>
         </div>
 
-        <!-- @if NODE_ENV='production' -->
-        <script type="text/javascript" charset="utf-8" src="dist/js/deploy.js"></script>
-        <!-- @endif -->
-
-        <!-- @if NODE_ENV!='production' -->
-        <script type="text/javascript" charset="utf-8" src="lib/widgets/VolumeMeter.js"></script>
-        <script type="text/javascript" charset="utf-8" src="lib/widgets/analyzer.js"></script>
-        <script type="text/javascript" charset="utf-8" src="lib/widgets/equalizer.js"></script>
-        <script type="text/javascript" charset="utf-8" src="lib/widgets/crossfader.js"></script>
-        <script type="text/javascript" charset="utf-8" src="lib/widgets/pitch.js"></script>
-        <script type="text/javascript" charset="utf-8" src="lib/widgets/player.js"></script>
-        <script type="text/javascript" charset="utf-8" src="lib/widgets/mixer.js"></script>
-        <script type="text/javascript" charset="utf-8" src="lib/effects/object.js"></script>
-        <script type="text/javascript" charset="utf-8" src="lib/effects/lowPass.js"></script>
-        <script type="text/javascript" charset="utf-8" src="lib/effects/moog.js"></script>
-        <script type="text/javascript" charset="utf-8" src="lib/effects/bitcrusher.js"></script>
-        <script type="text/javascript" charset="utf-8" src="lib/effects/noiseConvolver.js"></script>
-        <script type="text/javascript" charset="utf-8" src="lib/effects/pinking.js"></script>
-        <script type="text/javascript" charset="utf-8" src="lib/midi.js"></script>
-        <script type="text/javascript" charset="utf-8" src="src/main.js"></script>
-        <script type="text/javascript" charset="utf-8" src="lib/widgets/knob.js"></script>
-        <!-- @endif -->
+        <!-- @echo SCRIPTS -->
     </body>
 </html>
