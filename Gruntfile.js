@@ -1,6 +1,3 @@
-const scriptTag = path => `<script type="text/javascript" charset="utf-8" src="${path}"></script>`;
-const scriptTags = paths => paths.map(scriptTag).join('\n');
-
 module.exports = function (grunt) {
    const jsFiles = [
       'lib/widgets/VolumeMeter.js',
@@ -20,6 +17,9 @@ module.exports = function (grunt) {
       'src/main.js',
       'lib/widgets/knob.js',
     ];
+
+    const pubJsFiles = jsFiles.map(path => `public/${path}`);
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         connect: {
@@ -38,7 +38,7 @@ module.exports = function (grunt) {
               }
             },
             js: {
-                src: ['public/lib/*/*.js', 'public/src/*.js']
+                src: pubJsFiles
             }
         },
         uglify: {
@@ -50,7 +50,7 @@ module.exports = function (grunt) {
           },
           js: {
             files: {
-              'public/dist/js/deploy.js': jsFiles.map(file => `public/${file}`)
+              'public/dist/js/deploy.js': pubJsFiles
             }
           }
         },
@@ -88,8 +88,7 @@ module.exports = function (grunt) {
                 dest: './public/index.html',
                 options: {
                     context: {
-                      NODE_ENV: 'production',
-                      SCRIPTS: scriptTags(['dist/js/deploy.js'])
+                      JS_FILES: 'dist/js/deploy.js'
                     }
                 }
             },
@@ -98,7 +97,7 @@ module.exports = function (grunt) {
                 dest: './public/index.html',
                 options: {
                     context: {
-                      SCRIPTS: scriptTags(jsFiles)
+                        JS_FILES: jsFiles.join(',')
                     },
                 }
             }

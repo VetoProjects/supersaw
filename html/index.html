@@ -126,6 +126,8 @@
                 shift code.</p>
         </div>
 
-        <!-- @echo SCRIPTS -->
+        <!-- @foreach $FILE in JS_FILES -->
+        <script type="text/javascript" charset="utf-8" src="$FILE"></script>
+        <!-- @endfor -->
     </body>
 </html>
